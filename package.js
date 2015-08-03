@@ -16,11 +16,9 @@ Package.onUse(function(api) {
   api.versionsFrom('1.1.0.2');
 
   api.addFiles([
-  ], 'server');
-
-    api.addFiles([
-      'lib/server/wsl-locations.js',
-      'lib/server/wsl-connector.js'
+      'lib/both/wsl-locations/register.js',
+      'lib/both/wsl-items/register.js',
+      'lib/both/wsl-connector.js'
   ], both);
 
   api.use([
