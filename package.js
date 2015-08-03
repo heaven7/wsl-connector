@@ -10,13 +10,23 @@ Package.describe({
   documentation: 'README.md'
 });
 
+both = ['client','server'];
+
 Package.onUse(function(api) {
   api.versionsFrom('1.1.0.2');
-  api.addFiles('lib/server/wsl-connector.js');
+
+  api.addFiles([
+  ], 'server');
+
+    api.addFiles([
+      'lib/server/wsl-locations.js',
+      'lib/server/wsl-connector.js'
+  ], both);
+
+  api.use([
+      'heaven7:wsl-core@0.0.1',
+      'heaven7:wsl-locations@0.0.1'
+  ], both);
+
 });
 
-Package.onTest(function(api) {
-  api.use('tinytest');
-  api.use('heaven7:wsl-connector');
-  api.addFiles('wsl-connector-tests.js');
-});
